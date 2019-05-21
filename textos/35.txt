@@ -1,0 +1,8 @@
+Incluir Local de Impressão
+Acessar o módulo Estoque/Custos (Módulo 04);
+Menu Atualizações -> ACD -> Local de Impressão
+Codigo (CB5_CODIGO): DATAMA
+Descricao (CB5_DESCRI): DATAMA                                  
+Modelo (CB5_MODELO): DATAMA
+Tipo (CB5_TIPO): 3 - Spool
+Fila (CB5_FILA): 01

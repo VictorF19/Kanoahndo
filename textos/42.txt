@@ -1,0 +1,6 @@
+Preparar Doc. de Saída
+Acessar o módulo Faturamento (Módulo 05);
+Menu Atualizações -> Pedidos -> Pedidos de Venda (MATA410)
+Posicione no Pedido de Venda incluído
+Clicar em Outras Ações > Prep. Doc. Saida
+Avançar até confirmar a geração do Documento de Saída

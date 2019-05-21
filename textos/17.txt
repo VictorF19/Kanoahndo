@@ -1,0 +1,8 @@
+Incluir Condição de Pagamento
+Acessar o módulo Faturamento (Módulo 05);
+Menu Atualizacoes -> Cadastros -> Condições de pagamento (MATA360)
+Incluir
+Código (E4_CODIGO): 001
+Tipo (E4_TIPO): 1
+Cond. Pagto (E4_COND): 00
+Descrição (E4_DESCRI): A VISTA

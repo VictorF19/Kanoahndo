@@ -1,0 +1,8 @@
+Alterar Parâmetro
+Acessar o módulo Configurador (SIGACFG)
+Menu Ambiente -> Cadastros -> Parâmetros
+MV_INTACD: 1
+MV_CBPE001 até o MV_CBPE023: .T.
+MV_IACD01, MV_IACD02, MV_IACD03, MV_IACD04: DATAMA
+MV_ACDCB0: 01
+MV_IMPIP: 1

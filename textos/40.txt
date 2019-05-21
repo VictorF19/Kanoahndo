@@ -1,0 +1,9 @@
+Baixa C.Q.
+Acessar o programa VTDEBUG;
+Menu Atualizações -> Recebimento -> Baixa C.Q.
+Produto: 
+Pressione a tecla enter
+Endereço:  - 
+Pressione a tecla Enter
+Confirmar a liberação/estorno dos itens
+Pressione a tecla Esc para sair

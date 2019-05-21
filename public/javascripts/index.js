@@ -23,7 +23,6 @@ function criaOpcoesCombo(id)
                     select.append(option);
                 })
     
-                //[{"id":1,"nome":"Incluir"},{"id":2,"nome":"Alterar"},{"id":3,"nome":"Excluir"}]
             })
     }
 
@@ -53,8 +52,12 @@ function btnIncluirParaCT()
     {
         let textoCT =  $('#textoCT');
         let textoCTValue = textoCT.val();
-    
+        let height = textoCT.prop('scrollHeight');
+
         textoCT.val(textoCTValue.concat(textoRotinaValue + '\n\n'));
+
+        //posiciona a barra de rolagem embaixo
+        textoCT.scrollTop(height);
     }
 
     $('#btnIncluirParaCT').blur();

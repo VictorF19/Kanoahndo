@@ -1,0 +1,7 @@
+Classificar Documento de Entrada
+Acessar o módulo Estoque/Custos (Módulo 04);
+Menu Atualizações -> Movimentações -> Fiscais -> Documento de Entrada
+Posicione no Pré-Documento de Entrada: 
+Classificar
+Preencher o Grid
+TES (D1_TES): 

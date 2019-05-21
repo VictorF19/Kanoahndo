@@ -1,0 +1,9 @@
+Incluir Saldo Inicial
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu -> Atualizações -> Saldos -> Inicial (MATA220)
+Incluir
+Filial: D MG 01
+Produto (B9_COD): 
+Armazem (B9_LOCAL): 
+Qtd. Inic. Mes (B9_QINI): 
+Sld. Ini. Mes (B9_VINI1): 

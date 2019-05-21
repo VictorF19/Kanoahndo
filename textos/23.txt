@@ -1,0 +1,5 @@
+Excluir Cliente
+Acessar o módulo Faturamento (Módulo 05);
+Menu Atualizações -> Cadastros -> Cliente (MATA030)
+Posicione no Cliente: 
+Excluir

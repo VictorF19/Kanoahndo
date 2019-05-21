@@ -1,0 +1,9 @@
+Envio para C.Q.
+Acessar o programa VTDEBUG;
+Menu Atualizações -> Recebimento -> Envio C.Q.
+Produto: 
+Pressione a tecla enter
+Endereço:  - 
+Pressione a tecla Enter
+Confirmar endereçamento dos itens
+Pressione a tecla Esc para sair

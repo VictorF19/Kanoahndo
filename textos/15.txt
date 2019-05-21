@@ -1,0 +1,21 @@
+Incluir TES
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu Atualizações -> Cadastros -> Movimentações -> Fiscais -> Tes (MATA080)
+Incluir
+Filial: D MG 01
+Cod. do Tipo(F4_CODIGO): 
+Tipo do TES(F4_TIPO): S - Saida
+Cred.  ICMS(F4_CREDICM): N - Nao
+Credita IPI(F4_CREDIPI): N - Nao
+Gera  Dupl.(F4_DUPLIC): N - Nao
+Atu.Estoque(F4_ESTOQUE): S - Sim
+Poder  Terc.(F4_PODER3): R - Remessa
+Calcula ICMS(F4_ICM): N - Nao
+Calcula IPI(F4_IPI): N - Nao
+Cod. Fiscal(F4_CF): 000
+Txt Padrao(F4_TEXTO): SAIDA REMESSA
+L.Fisc.ICMS(F4_LFICM): N - Nao
+L.Fiscal  IPI(F4_LFIPI): N - Nao
+Destaca IPI(F4_DESTACA): N - Nao
+IPI na Base(F4_INCIDE): N - Nao
+Calc.Dif.Icm(F4_COMPL): N - Nao

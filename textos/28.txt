@@ -1,0 +1,11 @@
+Incluir Tipo de Movimento
+Acessar o módulo Estoque/Custos (Módulo 04);
+Menu Atualizações -> Cadastros-> Movimentações -> Internas (MATA230)
+Incluir
+Codigo TM (F5_CODIGO): 
+Tipo de TM (F5_TIPO): 
+Descrição (F5_TEXTO): 
+Aprop. Indir (F5_APROPR): 
+Atu. Empenho (F5_ATUEMP): 
+Transf. MOD (F5_TRANMOD): 
+Valorizado (F5_VAL): 

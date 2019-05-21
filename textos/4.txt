@@ -1,0 +1,7 @@
+Incluir Local de Estoque
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu Atualizações -> Cadastros -> Produto -> Locais de Estoque (AGRA045)
+Incluir
+Filial: D MG 01
+Codigo (NNR_CODIGO): 
+Descricao (NNR_DESCRIC): 

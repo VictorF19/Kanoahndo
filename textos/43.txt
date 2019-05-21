@@ -1,0 +1,9 @@
+Exclusão de Documentos de Saída
+Acessar o módulo Faturamento (Módulo 05);
+Menu Atualizações -> Faturamento -> Exclusão de Documentos de Saída (MATA410)
+Dt. Emissao de?: 01/01/2019
+Dt. Emissao ate?: 31/12/2019
+Confirmar os parâmetros
+Marcar o Documento de saída
+Clicar em Outras Ações > Excluir
+Confirmar Estorno

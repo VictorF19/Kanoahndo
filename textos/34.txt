@@ -1,0 +1,9 @@
+Incluir Operador
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu Atualizações -> ACD -> Operadores (ACDA010)
+Incluir
+Filial: D MG 01
+Codigo (CB1_CODOPE): 
+Nome Oper. (CB1_NOME): 
+Status (CB1_STATUS): 
+Operador (CB1_CODUSR): 

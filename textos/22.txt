@@ -1,0 +1,15 @@
+Alterar Cliente
+Acessar o módulo Faturamento (Módulo 05);
+Menu Atualizações -> Cadastros -> Cliente (MATA030)
+Posicione no Cliente:
+Alterar
+Filial: D MG 01
+Codigo (A1_COD): 
+Loja (A1_LOJA): 
+Nome (A1_NOME): 
+Fisica/Jurid (A1_PESSOA): 
+Endereco (A1_END): 
+N Fantasia (A1_NREDUZ): 
+Tipo (A1_TIPO): 
+Estado (A1_EST): 
+Municipio (A1_COD_MUN): 

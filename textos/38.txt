@@ -1,0 +1,11 @@
+Incluir Pré-Documento de Entrada
+Acessar o módulo Estoque/Custos (Módulo 04);
+Menu Atualizações -> Movimentações -> Fiscais -> Pré-Documento de Entrada
+Preencher o cabeçalho
+Fornecedor (F1_FORNECE): 
+Form.Prop.: Sim
+Preencher o Grid
+Produto (D1_COD): 
+Quantidade (D1_QUANT): 
+Vlr. Unitario (D1_VUNIT): 
+Vlr. Total (D1_TOTAL): 

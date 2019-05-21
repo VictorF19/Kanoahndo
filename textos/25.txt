@@ -1,0 +1,5 @@
+Excluir Endereço
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu Atualizações -> Cadastros -> Endereçamento -> Endereço (MATA015)
+Posicione no Endereço: 
+Excluir

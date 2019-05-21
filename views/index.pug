@@ -1,0 +1,34 @@
+extends layout
+
+block content
+
+  h1(style="text-align:center;margin-bottom:40px;font-weight:bold") K A N O A H N D O
+
+  div(id="combos" class="box box-solid box-primary" style="width:49%;float:left;")
+    div(class="box-header") P R É - V I S U A L I Z A Ç Ã O
+    div(class="box-body")
+      div(class="form-group")
+        select(id="comboRotina" onchange="criaOpcoesCombo(event.target.value)" class="form-control") 
+          option(value='') Selecione a rotina...
+            each objeto in objetos
+              option(value=objeto.id) #{objeto.nome}
+
+      div(class="form-group")
+        select(id="comboOperacao" onchange="selecionaOperacao(event.target.value)" class="form-control")
+
+            option(value='') Selecione a operação...
+
+      div(class="form-group")
+        textarea(id="textoRotina", cols="30", rows="10", class="form-control", style="resize:none")
+  
+      div(style="float:right")
+        button(id="btnIncluirParaCT" onclick="btnIncluirParaCT()" class="btn btn-primary") Incluir
+
+  div(id="direita" class="box box-solid box-primary" style="width:48%;float:left;margin-left:10px;")
+    div(class="box-header") V E R S Ã O &nbsp F I N A L
+    div(class="box-body")
+      div(class="form-group")
+        textarea(id="textoCT", cols="30", rows="10", class="form-control", style="resize:none;margin-bottom:10px;height:500px;")
+        div(style="float:right")
+          button(id="btnLimparTudo" onclick="btnLimparTudo()" class="btn btn-warning") Limpar Tudo
+          button(id="btnCopiar" onclick="btnCopiar()" class="btn btn-primary" style="margin-left:5px;") Copiar

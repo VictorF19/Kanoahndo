@@ -1,0 +1,8 @@
+Alterar Endereço
+Acessar o módulo Estoque/Custos (Módulo 04);
+Menu Atualizações -> Cadastros -> Endereçamento -> Endereço (MATA015)
+Alterar
+Filial (BE_FILIAL): D MG 01
+Armazem (BE_LOCAL): 
+Endereco (BE_LOCALIZ): 
+Descricao (BE_DESCRIC): 

@@ -1,0 +1,12 @@
+Incluir Produto
+Acessar o módulo Estoque/Custos (Módulo 04);
+Menu Atualizações -> Cadastros -> Produto -> Produtos (MATA010)
+Incluir
+Filial: D MG 01
+Código (B1_COD): 
+Descrição (B1_DESC): 
+Tipo (B1_TIPO): 
+Unidade (B1_UM): 
+Armazem Pad. (B1_LOCPAD): 
+Rastro (B1_RASTRO): L - Lote
+Contr. Endere (B1_LOCALIZ): S - Sim

@@ -1,0 +1,12 @@
+Incluir Fornecedor 
+Acessar o módulo Compras (Módulo 02)
+Menu Atualizações -> Cadastros -> Fornecedores
+Incluir
+Codigo (A2_COD): 
+Loja (A2_LOJA): 
+Razão Social (A2_NOME): 
+N Fantasia (A2_NREDUZ): 
+Endereco (A2_END): 
+Estado (A2_EST): 
+Municipio (A2_MUN): 
+Tipo (A2_TIPO): 

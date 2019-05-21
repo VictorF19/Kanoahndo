@@ -1,0 +1,8 @@
+Endereçamento 
+Acessar o módulo Estoque/Custos (Módulo 04);
+Menu Atualizações -> Movimentações-> Internas -> Endereçamento -> Endereçar (MATA265)
+Posicione no saldo a endereçar:
+Endereçar;
+Preencher no Grid:
+Endereço (DB_LOCALIZ): 
+Qtd Distribu (DB_QUANT): 

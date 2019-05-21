@@ -1,0 +1,9 @@
+Incluir Amarração de Produto x Fornecedor
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu Atualizações -> Cadastros -> Produto -> Amarração de Produto x Fornecedor (MATA061)
+Incluir
+Filial: D MG 01
+Produto (A5_PRODUTO): 
+Preencher o Grid
+Fornecedor (A5_FORNECE): 
+Nota (A5_NOTA): 

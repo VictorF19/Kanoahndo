@@ -1,0 +1,6 @@
+Copiar Produto
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu Atualizações -> Cadastros -> Produto -> Produtos (MATA010)
+Posicione no Produto: 
+Outras Ações -> Copiar
+Código (B1_COD): 

@@ -1,0 +1,21 @@
+Incluir Pedido de Venda
+Acessar o módulo Faturamento (Módulo 05);
+Menu Atualizações -> Pedidos -> Pedidos de Venda (MATA410)
+Incluir
+Tipo Pedido (C5_TIPO): D - Dev. Compras
+Fornecedor (C5_CLIENTE): 
+Loja (F1_LOJACLI): 
+Tipo Cliente (C5_TIPOCLI): 
+Cond. Pagto (C5_CONDPAG): 
+Preencher o Grid
+Produto (C6_PRODUTO): 
+Quantidade (C6_QTDVEN): 
+Prc Unitario (C6_PRCVEN): 
+Vlr.Total (C6_VALOR): 
+Qtd.Liberada (C6_QTDLIB): 
+Tipo Saida (C6_TES): 
+Posicione o cursor no campo N.F. Original;
+Selecione a Nota de Entrada: 
+N.F. Original (C6_NFORI): 
+Serie Orig. (C6_SERIORI): 
+Item NF. Orig (C6_ITEMORI): 

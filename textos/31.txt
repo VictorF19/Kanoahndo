@@ -1,0 +1,4 @@
+Alterar Parâmetro
+Acessar o módulo Configurador (SIGACFG)
+Menu Ambiente -> Cadastros -> Parâmetros
+MV_ : 
