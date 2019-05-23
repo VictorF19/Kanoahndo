@@ -20,9 +20,12 @@ block content
 
       div(class="form-group")
         textarea(id="textoRotina", cols="30", rows="10", class="form-control", style="resize:none")
-  
-      div(style="float:right")
-        button(id="btnIncluirParaCT" onclick="btnIncluirParaCT()" class="btn btn-primary") Incluir
+
+      div
+        a(href="/config")
+          button(class="btn btn-secondary" title="Configurador")
+            i(class="fa fa-cog")
+        button(id="btnIncluirParaCT" onclick="btnIncluirParaCT()" class="btn btn-primary" style="float:right") Incluir
 
   div(id="direita" class="box box-solid box-primary" style="width:48%;float:left;margin-left:10px;")
     div(class="box-header") V E R S Ã O &nbsp F I N A L
