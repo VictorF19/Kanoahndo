@@ -1,8 +1,22 @@
 extends layout
 
 block content
-    p C O N F I G U R A D O R
 
-    a(href="/")
-        button(class="btn btn-primary" title="Configurador")
-            i(class="fa fa-home")
+    div(class="box box-solid box-primary")
+        div(class="box-header") M Ó D U L O &nbsp C O N F I G U R A D O R
+        div(class="box-body")
+            div(class="card")
+                div(class="card-header")
+                    h3(class="card-title" style="font-weight:bold") R O T I N A S   
+                        i(class="fa fa-plus" style="margin-left:10px;cursor:pointer;" title="Adicionar")
+                div(class="card-body table-responsive p-0")
+                    table(class="table table-hover")
+                        tbody
+                            each objeto in objetos
+                                tr
+                                    th(style="font-size:0.85em;font-weight:normal") #{objeto.nome}
+
+
+            a(href="/" style="float:right")
+                button(class="btn btn-primary" title="Configurador")
+                    i(class="fa fa-home")
