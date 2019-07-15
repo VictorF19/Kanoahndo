@@ -5,88 +5,7 @@ var fs = require('fs');
 
 const Objetos = require('../models/objeto')
 const Operacoes = require('../models/operacao')
-const insertObject = require('../Posting/insertObject')
-const getObject = require('../Posting/getObject')
-const getGeneric = require('../Posting/getGeneric')
-const deleteObject = require('../Posting/deleteObject')
-const updateObject = require('../Posting/updateObject')
-
-const insert = data => {
-    return new Promise((resolve, reject) => {
-        insertObject(data, (resp, err) => {
-            if(err)
-            {
-                reject(err)
-            }
-            else
-            {
-                resolve(resp)
-            }
-        })
-    })
-}
-
-const get = data => {
-    return new Promise((resolve, reject) => {
-        getObject(data, (resp, err) => {
-            if(err)
-            {
-                reject(err)
-            }
-            else
-            {
-                resolve(resp)
-            }
-        })
-    })
-}
-
-const getAllOperation = id => {
-    return new Promise((resolve, reject) => {
-        let text = 'select * from operacoes where id_objeto = $1'
-        let values = [id]
-        getGeneric(text, values, (resp, err) => {
-            if(err)
-            {
-                reject(err)
-            }
-            else
-            {
-                resolve(resp)
-            }
-        })
-    })
-}
-
-const deleteRecord = data => {
-    return new Promise((resolve, reject) => {
-        deleteObject(data, (resp, err) => {
-            if(err)
-            {
-                reject(err)
-            }
-            else
-            {
-                resolve(resp)
-            }
-        })
-    })
-}
-
-const update = data => {
-    return new Promise((resolve, reject) => {
-        updateObject(data, (resp, err) => {
-            if(err)
-            {
-                reject(err)
-            }
-            else
-            {
-                resolve(resp)
-            }
-        })
-    })
-}
+const postAccess = require('../infrastructure/postAccess')
 
 router.post('/', (req, res, next) => {
     
@@ -108,7 +27,7 @@ router.post('/', (req, res, next) => {
 
             let novoObjeto = new Objetos(null, nome)
 
-            insert(novoObjeto).then(resp => {
+            postAccess.insert(novoObjeto).then(resp => {
                 
                 let objectResponse = {
                     error: 0,
@@ -150,7 +69,7 @@ router.delete('/', async (req, res, next) => {
 
     try
     {
-        objeto = await get(objeto)
+        objeto = await postAccess.get(objeto)
 
         if(objeto == null)
         {
@@ -158,7 +77,7 @@ router.delete('/', async (req, res, next) => {
             return
         }
 
-        let operacoes = await getAllOperation(objeto.id)
+        let operacoes = await postAccess.getAllOperation(objeto.id)
 
         let l = operacoes.length
 
@@ -172,11 +91,11 @@ router.delete('/', async (req, res, next) => {
                     fs.unlinkSync(`${textoPath}${operacoes[i].id}.txt`)
                 }
 
-                await deleteRecord(new Operacoes(operacoes[i].id, operacoes[i].id_objeto, operacoes[i].nome))
+                await postAccess.deleteRecord(new Operacoes(operacoes[i].id, operacoes[i].id_objeto, operacoes[i].nome))
             }
         }
 
-        await deleteRecord(objeto)
+        await postAccess.deleteRecord(objeto)
 
         let responseObject = {
             error: 0,
@@ -228,7 +147,7 @@ router.put('/', async (req, res, next) => {
 
     try
     {
-        objeto = await get(objeto)
+        objeto = await postAccess.get(objeto)
 
         if(objeto == null)
         {
@@ -242,7 +161,7 @@ router.put('/', async (req, res, next) => {
             return
         }
 
-        let sameName = await get(new Objetos(null, nome))
+        let sameName = await postAccess.get(new Objetos(null, nome))
 
         if(sameName != null && sameName.id != objeto.id)
         {
@@ -252,7 +171,7 @@ router.put('/', async (req, res, next) => {
 
         objeto.nome = nome
 
-        await update(objeto)
+        await postAccess.update(objeto)
 
         let responseObject = {
             error: 0,
@@ -273,7 +192,7 @@ router.put('/', async (req, res, next) => {
             obj: {}
         }
 
-        res.send(500).send(JSON.stringify(responseError))
+        res.status(500).send(JSON.stringify(responseError))
     }
 
 })
