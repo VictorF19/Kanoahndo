@@ -27,24 +27,32 @@ router.post('/', (req, res, next) => {
 
             let novoObjeto = new Objetos(null, nome)
 
-            postAccess.insert(novoObjeto).then(resp => {
-                
-                let objectResponse = {
+            try
+            {
+
+                novoObjeto = await postAccess.insert(novoObjeto)
+
+                let responseObject = {
                     error: 0,
                     msg: 'Success',
-                    obj: {
-                        id: resp.id,
-                        nome: nome.id
-                    }
+                    obj: novoObjeto
                 }
 
-                res.status(200).send(JSON.stringify(objectResponse))
+                res.status(200).send(JSON.stringify(responseObject))
+            }
+            catch(e)
+            {
 
-            }).catch(err => {
+                let error = e.stack
 
-                res.status(500).send("{ 'error': 1, 'msg': 'Database insert error', 'obj': {} }")
+                let responseError = {
+                    error: 1,
+                    msg: error,
+                    obj: {}
+                }
 
-            })
+                res.send(500).send(JSON.stringify(responseError))
+            }
         }
     }
 });
