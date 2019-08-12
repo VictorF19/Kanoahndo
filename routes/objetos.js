@@ -7,7 +7,7 @@ const Objetos = require('../models/objeto')
 const Operacoes = require('../models/operacao')
 const postAccess = require('../infrastructure/postAccess')
 
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
     
     if(req.headers["content-type"] != 'application/json')
     {
