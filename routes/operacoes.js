@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var getConnection = require('../Posting/getConnection');
+var fs = require('fs')
 
+const textosPath = require('../appConfig.js/textosPath')
 const postAccess = require('../infrastructure/postAccess')
 const Objetos = require('../models/objeto')
 const Operacoes = require('../models/operacao')
@@ -97,6 +99,66 @@ router.post('/', async (req, res) => {
 
         res.status(500).send(JSON.stringify(responseError))
     }
+})
+
+router.delete('/', async (req, res, next) => {
+
+    if(req.headers["content-type"] != 'application/json')
+    {
+        res.status(406).send("{ 'error': 1, 'msg': 'Content-type must be application/json', 'obj': {} }")
+        return
+    }
+
+    let id = req.body.id
+
+    if(id == null || id == undefined || typeof id != "number")
+    {
+        res.status(406).send("{ 'error': 1, 'msg': 'JSON object must have a numeric id attribute', 'obj': {} }")
+        return
+    }
+
+    try
+    {
+
+        let operacao = await postAccess.get(new Operacoes(id))
+
+        if(operacao == null)
+        {
+            res.status(400).send("{ 'error': 1, 'msg': 'Operation not found', 'obj': {} }")
+            return
+        }
+
+        if(fs.existsSync(`${textosPath}${id}.txt`))
+        {
+            fs.unlinkSync(`${textosPath}${id}.txt`)
+        }
+
+        operacao = await postAccess.deleteRecord(operacao)
+
+        let responseObject = {
+            error: 0,
+            msg: 'Success',
+            obj: operacao
+        }
+
+        res.status(200).send(JSON.stringify(responseObject))
+
+    }
+    catch(e)
+    {
+
+        let err = e.stack
+
+        responseError = {
+            error: 1,
+            msg: err,
+            obj: {}
+        }
+
+        res.status(500).send(JSON.stringify(responseError))
+
+    }
+
 })
 
 module.exports = router;
