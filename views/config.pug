@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    script(src='javascripts/config.js')
 
     div(class="box box-solid box-primary")
         div(class="box-header") M Ó D U L O &nbsp C O N F I G U R A D O R
@@ -27,12 +28,12 @@ block content
                 div(class="modal-body")
                     form
                         div(class="form-group")
-                            input(class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Nome da Rotina")
+                            input(id="ip1" class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Nome da Rotina")
                             small(id="rotinaHelp" class="form-text text-muted") Exemplo: MATA010
                         div(class="form-group")
-                            input(class="form-control" type="text" aria-describedby="descHelp" placeholder="Descrição da Rotina")
+                            input(id="ip2" class="form-control" type="text" aria-describedby="descHelp" placeholder="Descrição da Rotina")
                             small(id="descHelp" class="form-text text-muted") Exemplo: Cadastro de Produtos   
                 div(class="modal-footer justify-content-between")
-                    button(type="button" class="btn btn-success" data-dismiss="modal") Salvar 
+                    button(type="button" class="btn btn-success" onclick="btnIncluirRotina()") Salvar 
                     button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar               
             
