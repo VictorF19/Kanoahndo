@@ -2,25 +2,35 @@ extends layout
 
 block content
     script(src='javascripts/config.js')
+     link(rel='stylesheet', href='stylesheets/admin-lte/dist/css/adminlte.min.css')
 
     div(class="box box-solid box-primary")
-        div(class="box-header") M Ó D U L O &nbsp C O N F I G U R A D O R
+        div(class="box-header" style="text-align:center;margin-bottom:40px;font-weight:bold") M Ó D U L O &nbsp C O N F I G U R A D O R
         div(class="box-body")
-            div(class="card")
-                div(class="card-header")
-                    h3(class="card-title" style="font-weight:bold") R O T I N A S  
-                        button(class="btn btn-default" data-toggle="modal" data-target="#mymodal" style="float:right") +                                                      
-                div(class="card-body table-responsive p-0")
+            div(id="testeBox" class="box" data-widget="box-refresh" data-source="/config")
+                div(class="box-header")
+                    h3(class="box-title" style="text-align:center;margin-bottom:40px;font-weight:bold") R O T I N A S  
+                        button(class="btn btn-primary" data-toggle="modal" data-target="#mymodal" style="float:right") +    
+                        a(href="/")
+                            button(class="btn btn-primary" title="Configurador" style="float:left")
+                                i(class="fa fa-home")
+                                                
                     table(class="table table-hover")
                         tbody
                             each objeto in objetos
                                 tr
-                                    th(style="font-size:0.85em;font-weight:normal") #{objeto.nome}
-            a(href="/" style="float:right")
-                button(class="btn btn-primary" title="Configurador")
-                    i(class="fa fa-home")
-
-    div(class="modal open" id="mymodal" style="display:none" aria-hidden="true")
+                                    th(class="card collapsed-card")
+                                        div(class="card-header") 
+                                            h5(id=`${objeto.id}` class="card-title" style="font-weight:bold")  #{objeto.nome}
+                                            div(class="card-tools pull-right")
+                                                button(type="button" class="btn btn-card-tool" data-card-widget="collapse"  onclick=`carregaOperacoes(${objeto.id})`)
+                                                    i(id=`icon${objeto.id}` class="fa fa-plus")  
+                                                button(class="btn btn-box-tool" data-toggle="modal" data-target="#aaa")   
+                                                     i(class="fa fa-wrench")  
+                                                button(class="btn btn-box-tool" onclick=`btnRemoverRotina(${objeto.id})`)
+                                                     i(class="fa fa-times")                                      
+                                        a(href='#' id=`operacoes${objeto.id}` class="card-body" onclick="testeaa()")                    
+    div(class="modal fade" id="mymodal" style="display:none" aria-hidden="true")
         div(class="modal-dialog")
             div(class="modal-content")     
                 div(class="modal-header")
@@ -28,12 +38,30 @@ block content
                 div(class="modal-body")
                     form
                         div(class="form-group")
-                            input(id="ip1" class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Nome da Rotina")
+                            input(id="ip1" class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Nome da rotina")
                             small(id="rotinaHelp" class="form-text text-muted") Exemplo: MATA010
                         div(class="form-group")
-                            input(id="ip2" class="form-control" type="text" aria-describedby="descHelp" placeholder="Descrição da Rotina")
+                            input(id="ip2" class="form-control" type="text" aria-describedby="descHelp" placeholder="Descrição da rotina")
                             small(id="descHelp" class="form-text text-muted") Exemplo: Cadastro de Produtos   
                 div(class="modal-footer justify-content-between")
                     button(type="button" class="btn btn-success" onclick="btnIncluirRotina()") Salvar 
+                    button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar
+
+    div(class="modal fade" id="aaa" style="display:none" aria-hidden="true")
+        div(class="modal-dialog")
+            div(class="modal-content")     
+                div(class="modal-header")
+                    h4(class="modal-title") Alterar Rotina                             
+                div(class="modal-body")
+                    form
+                        div(class="form-group")
+                            input(id="ip1" class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Novo nome da Rotina")
+                            small(id="rotinaHelp" class="form-text text-muted") Exemplo: MATA010
+                        div(class="form-group")
+                            input(id="ip2" class="form-control" type="text" aria-describedby="descHelp" placeholder="Nova descrição da Rotina")
+                            small(id="descHelp" class="form-text text-muted") Exemplo: Cadastro de Produtos   
+                div(class="modal-footer justify-content-between")
+                    button(type="button" class="btn btn-success" onclick="btnIncluirRotina()") Alterar 
                     button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar               
+                                               
             
