@@ -97,34 +97,76 @@ function alteraRotina(id,nome){
 function carregaOperacoes(id){
 
     var i;
+    console.log(id);
 
     if (id != '')
     {         
         $.get(`/operacoes/${id}`, (data) => {
-            let objRes = JSON.parse(data);
+            
+            let objRes = '';
 
-            for(i= 0; i < objRes.length; i++){
+            objRes = JSON.parse(data);
 
-                document.getElementById('operacoes'+id).innerHTML += objRes[i].nome;
+            let p = undefined;
+            let node;
 
-                document.getElementById('operacoes'+id).innerHTML += "<br/>";
-                console.log(objRes);
-            }
+            let element = document.getElementById("operacoes1");
 
-/*             button(type="button" class="btn btn-card-tool" data-card-widget="collapse"  onclick=`carregaOperacoes(${objeto.id})`)
-            i(id=`icon${objeto.id}` class="fa fa-plus")  
-        button(class="btn btn-box-tool" onclick=`carregaOperacoes(${objeto.id})`)   
-             i(class="fa fa-wrench")  
-        button(class="btn btn-box-tool" onclick=`btnRemoverRotina(${objeto.id})`)
-             i(class="fa fa-times") 
- */
-           //return data;
+            element.innerHTML = '';
 
+            p = document.createElement('p');
+
+
+            console.log(objRes);
+            objRes.forEach((item ) => {
+
+                console.log(item.id);
+                console.log(item.nome);
+
+                let myDiv = document.createElement("div");
+
+                let texto = getTexto(item.id);
+                myDiv.innerHTML =   "<div class=\"row\">"
+                                    +"<div class=\"col-md-12\">"        
+                                        + "<div class=\"card collapsed-card \">"
+                                            + "<div class=\"card-header\">" 
+                                                + "<h5 class=\"card-title\" style=\"font-weight: bold;\"> " + item.nome + "</h5>"
+                                                + "<div class=\"card-tools\">"
+                                                    + "<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\" onclick=teste()>"
+                                                        + "<i class=\"fas fa-plus\">" + "</i>" 
+                                                    + "</button>"
+                                                + "</div>"
+                                            + "</div>"
+                                            + "<div class=\"card-body\">"
+                                                + "<p>" + texto
+                                                + "</p>"
+                                            + "</div>"
+                                        + "</div>"
+                                    + "</div>"
+                                + "</div>";
+                 
+                element.appendChild(myDiv);
+    
+            })
         })
     }
 }
 
-function testeaa(){
+function getTexto(id)
+{
+    if(id != '')
+    {
+        // faz requisição do texto
+        $.get(`/texto/${id}`, {async: false},(data) => {
+    
+            console.log(data);
+            return data;
+        });
 
-    alert('aaaaa')
+    }
+} 
+
+function teste(){
+
+    alert('a');
 }
