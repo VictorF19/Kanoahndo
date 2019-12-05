@@ -104,69 +104,66 @@ function carregaOperacoes(id){
         $.get(`/operacoes/${id}`, (data) => {
             
             let objRes = '';
-
-            objRes = JSON.parse(data);
-
             let p = undefined;
             let node;
-
+            let i = 0;
             let element = document.getElementById("operacoes1");
 
             element.innerHTML = '';
-
             p = document.createElement('p');
-
-
+            objRes = JSON.parse(data);
             console.log(objRes);
+
             objRes.forEach((item ) => {
-
-                console.log(item.id);
-                console.log(item.nome);
-
                 let myDiv = document.createElement("div");
 
-                let texto = getTexto(item.id);
                 myDiv.innerHTML =   "<div class=\"row\">"
                                     +"<div class=\"col-md-12\">"        
                                         + "<div class=\"card collapsed-card \">"
                                             + "<div class=\"card-header\">" 
                                                 + "<h5 class=\"card-title\" style=\"font-weight: bold;\"> " + item.nome + "</h5>"
                                                 + "<div class=\"card-tools\">"
-                                                    + "<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\" onclick=teste()>"
+                                                    + `<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\" onclick=\"loadText(${item.id}, ${i})\">`
                                                         + "<i class=\"fas fa-plus\">" + "</i>" 
                                                     + "</button>"
+                                                    + `<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"remove\">`
+                                                        + "<i class=\"fas fa-times\">" + "</i>" 
+                                                    + "</button>"                                                    
                                                 + "</div>"
                                             + "</div>"
                                             + "<div class=\"card-body\">"
-                                                + "<p>" + texto
-                                                + "</p>"
+                                                + `<textarea id=\"#textoRotina${i}\" class=\"col-md-12\" rows=\"10\">`
+                                                + "</textarea>"
+                                            + "</div>"
+                                            + "<div class=\"card-footer\">"
+                                                + `<button type=\"button\" class=\"btn btn-primary\" style=\"float:right\"> Salvar texto`
                                             + "</div>"
                                         + "</div>"
                                     + "</div>"
                                 + "</div>";
-                 
+
                 element.appendChild(myDiv);
+                i++;
     
             })
         })
     }
 }
 
-function getTexto(id)
+function loadText(id, i)
 {
     if(id != '')
     {
-        // faz requisição do texto
-        $.get(`/texto/${id}`, {async: false},(data) => {
-    
-            console.log(data);
-            return data;
-        });
+        var x = document.getElementById(`#textoRotina${i}`).value;
 
+        if(x == ''){
+
+            // faz requisiÃ§Ã£o do texto
+            $.get(`/texto/${id}`, (data) => {
+                document.getElementById(`#textoRotina${i}`).value = data;
+                console.log(data);
+            }); 
+        }
+        
     }
 } 
-
-function teste(){
-
-    alert('a');
-}
