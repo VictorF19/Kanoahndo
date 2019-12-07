@@ -125,10 +125,7 @@ function carregaOperacoes(id){
                                                 + "<div class=\"card-tools\">"
                                                     + `<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\" onclick=\"loadText(${item.id}, ${i})\">`
                                                         + "<i class=\"fas fa-plus\">" + "</i>" 
-                                                    + "</button>"
-                                                    + `<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"remove\">`
-                                                        + "<i class=\"fas fa-times\">" + "</i>" 
-                                                    + "</button>"                                                    
+                                                    + "</button>"                                                 
                                                 + "</div>"
                                             + "</div>"
                                             + "<div class=\"card-body\">"
@@ -136,7 +133,9 @@ function carregaOperacoes(id){
                                                 + "</textarea>"
                                             + "</div>"
                                             + "<div class=\"card-footer\">"
-                                                + `<button type=\"button\" class=\"btn btn-primary\" style=\"float:right\"> Salvar texto`
+                                                + `<button type=\"button\" class=\"btn btn-danger\" style=\"float:right\" data-toggle=\"modal\" data-target=\"#deleteOperationModal\" onclick="deleteOperation()">`
+                                                    + "<i class=\"fas fa-trash\">" + "</i>" 
+                                                + `<button type=\"button\" class=\"btn btn-primary\" style=\"float:left\" onclick="updateText()"> Salvar texto`
                                             + "</div>"
                                         + "</div>"
                                     + "</div>"
@@ -167,3 +166,12 @@ function loadText(id, i)
         
     }
 } 
+
+
+function updateText(){
+
+}
+
+function deleteOperation(){
+
+}

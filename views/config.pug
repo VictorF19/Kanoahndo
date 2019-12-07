@@ -36,12 +36,16 @@ block content
                                                 button(class="btn btn-box-tool" onclick=`btnRemoverRotina(${objeto.id})`)
                                                      i(class="fa fa-times")                                      
                                         a(href='#' id=`operacoes${objeto.id}` class="card-body" onclick="testeaa()")                    
-    div(id="operacoes1")
+    div(class="content")
+        div(class="content-head")
+            div(class="content-fluid")
+                div(id="operacoes1")
+
     div(class="modal fade" id="mymodal" style="display:none" aria-hidden="true")
         div(class="modal-dialog")
             div(class="modal-content")     
                 div(class="modal-header")
-                    h4(class="modal-title") Nova Rotina                             
+                    h4(class="modal-title") Nova Rotina                            
                 div(class="modal-body")
                     form
                         div(class="form-group")
@@ -69,6 +73,16 @@ block content
                             small(id="descHelp" class="form-text text-muted") Exemplo: Cadastro de Produtos   
                 div(class="modal-footer justify-content-between")
                     button(type="button" class="btn btn-success" onclick="btnIncluirRotina()") Alterar 
-                    button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar               
-                                               
+                    button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar  
+    div(class="modal fade" id="deleteOperationModal" style="display:none" aria-hidden="true")
+        div(class="modal-dialog")
+            div(class="modal-content")     
+                div(class="modal-header")
+                    h4(class="modal-title") Deletar Operação                             
+                div(class="modal-body")
+                    div(class="form-group")
+                        h6 Deseja mesmo deletar essa operação? 
+                div(class="modal-footer justify-content-between")
+                    button(type="button" class="btn btn-danger" onclick="btnIncluirRotina()") Deletar 
+                    button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar                                           
             
