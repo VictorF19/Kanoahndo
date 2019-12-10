@@ -96,11 +96,11 @@ function alteraRotina(id,nome){
 
 function carregaOperacoes(id){
 
-    var i;
-    console.log(id);
+    document.getElementById('newOperationCard').className = "card card-primary collapsed-card";
 
     if (id != '')
-    {         
+    {    
+        //$('#newOperationCard').card('show');     
         $.get(`/operacoes/${id}`, (data) => {
             
             let objRes = '';
@@ -133,7 +133,7 @@ function carregaOperacoes(id){
                                                 + "</textarea>"
                                             + "</div>"
                                             + "<div class=\"card-footer\">"
-                                                + `<button type=\"button\" class=\"btn btn-danger\" style=\"float:right\" data-toggle=\"modal\" data-target=\"#deleteOperationModal\" onclick="deleteOperation()">`
+                                                + `<button type=\"button\" class=\"btn btn-danger\" style=\"float:right\" onclick="deleteOperation(${item.id})">`
                                                     + "<i class=\"fas fa-trash\">" + "</i>" 
                                                 + `<button type=\"button\" class=\"btn btn-primary\" style=\"float:left\" onclick="updateText()"> Salvar texto`
                                             + "</div>"
@@ -172,6 +172,67 @@ function updateText(){
 
 }
 
-function deleteOperation(){
+function insertOperation(){
+
+    let operationName = document.getElementById('operationName').value;
+    let operationText = document.getElementById('operationText').value;
+    let routineId =  parseInt(document.getElementById('comboRotina').value); 
+    let url = "/operacoes"
+    let obj = {};
+    let strobj = '';
+    let success = '';
+    let error = '';
+
+    console.log(operationName + ' '+ routineId);
+
+    obj.id_objeto = routineId;
+    obj.nome = operationName;
+    strobj = JSON.stringify(obj);
+
+    
+    if(operationName == '' || operationText == ''){
+
+        alert('Verifique se os campos estão preenchidos.');
+    }
+    else{
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: strobj,
+            success: success,
+            dataType: 'json',
+            contentType: 'application/json',
+            error: error
+            }); 
+    }
+    return
+}
+
+function deleteOperation(id){
+
+    let obj;
+    obj = {id:id};
+    success = ''
+    error = ''
+    console.log(id);
+    $('#deleteOperationModal').modal('show');
+    console.log(id);
+
+    
+    $('button[name="btnDelete"]').on('click', async function(e) {
+        
+        $.ajax({
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/operacoes',
+            type: 'delete',
+            success: success,
+            error: error,
+            // data = {obj}
+        });
+    })
+
+
+
 
 }
