@@ -119,7 +119,7 @@ function carregaOperacoes(id){
 
                 myDiv.innerHTML =   "<div class=\"row\">"
                                     +"<div class=\"col-md-12\">"        
-                                        + "<div class=\"card collapsed-card \">"
+                                        + `<div id=id${item.id} class=\"card collapsed-card \">`
                                             + "<div class=\"card-header\">" 
                                                 + "<h5 class=\"card-title\" style=\"font-weight: bold;\"> " + item.nome + "</h5>"
                                                 + "<div class=\"card-tools\">"
@@ -170,6 +170,7 @@ function loadText(id, i)
 
 function updateText(){
 
+
 }
 
 function insertOperation(){
@@ -178,10 +179,12 @@ function insertOperation(){
     let operationText = document.getElementById('operationText').value;
     let routineId =  parseInt(document.getElementById('comboRotina').value); 
     let url = "/operacoes"
+    let textUrl = "/texto"
     let obj = {};
     let strobj = '';
-    let success = '';
     let error = '';
+    let textObj = {};
+    let strTextObj = '';
 
     console.log(operationName + ' '+ routineId);
 
@@ -189,7 +192,6 @@ function insertOperation(){
     obj.nome = operationName;
     strobj = JSON.stringify(obj);
 
-    
     if(operationName == '' || operationText == ''){
 
         alert('Verifique se os campos estão preenchidos.');
@@ -199,7 +201,24 @@ function insertOperation(){
             type: "POST",
             url: url,
             data: strobj,
-            success: success,
+            success: function(result){
+
+                textObj.id_operacao =  result.obj.id;
+                textObj.texto = operationText;
+
+                strTextObj = JSON.stringify(textObj);
+                $.ajax({
+                    type: "POST",
+                    url: textUrl,
+                    data: strTextObj,
+                    success: function(result){
+                        console.log('Texto da operação gravado com sucesso.');
+                    },
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    error: error
+                    }); 
+             },
             dataType: 'json',
             contentType: 'application/json',
             error: error
@@ -212,12 +231,15 @@ function deleteOperation(id){
 
     let obj;
     obj = {id:id};
-    success = ''
-    error = ''
+    let strobj = '';
+    let success = '';
+    let error = '';
+    let divRemoved;
     console.log(id);
     $('#deleteOperationModal').modal('show');
     console.log(id);
 
+    strobj = JSON.stringify(obj);   
     
     $('button[name="btnDelete"]').on('click', async function(e) {
         
@@ -225,14 +247,13 @@ function deleteOperation(id){
             dataType: 'json',
             contentType: 'application/json',
             url: '/operacoes',
-            type: 'delete',
-            success: success,
+            type: 'DELETE',
+            success: function(result){
+                $("#id"+id).remove();
+                $('#deleteOperationModal').modal('hide');
+            },
             error: error,
-            // data = {obj}
+            data: strobj
         });
     })
-
-
-
-
 }
