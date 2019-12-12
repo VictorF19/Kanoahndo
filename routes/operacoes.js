@@ -161,4 +161,75 @@ router.delete('/', async (req, res, next) => {
 
 })
 
+router.put('/', async (req, res, next) => {
+
+    if(req.headers["content-type"] != 'application/json')
+    {
+        res.status(406).send("{ 'error': 1, 'msg': 'Content-type must be application/json', 'obj': {} }")
+        return
+    }
+
+    let id = req.body.id
+
+    let nome = req.body.nome
+
+    let hasId = !(id == null || id == undefined || typeof id != "number")
+
+    let hasNome = !(nome == null || nome == undefined || nome == "")
+
+    if(!hasId || !hasNome)
+    {
+        res.status(406).send("{ 'error': 1, 'msg': 'JSON object must have a numeric id attribute and a name attribute', 'obj': {} }")
+        return
+    }
+
+    try
+    {
+
+        let operacao = await postAccess.get(new Operacoes(id)) // Operação existe?
+
+        if(operacao == null)
+        {
+            res.status(400).send("{ 'error': 1, 'msg': 'Operation not found', 'obj': {} }")
+            return
+        }
+
+        let lastName = operacao.nome
+
+        if(lastName == nome)
+        {
+            res.status(406).send("{ 'error': 1, 'msg': 'No changes detected', 'obj': {} }")
+            return
+        }
+        
+        operacao.nome = nome
+
+        operacao = await postAccess.update(operacao)
+
+        let responseObject = {
+            error: 0,
+            msg: 'Success',
+            obj: operacao
+        }
+
+        res.status(200).send(JSON.stringify(responseObject))
+
+    }
+    catch(e)
+    {
+
+        let err = e.stack
+
+        responseError = {
+            error: 1,
+            msg: err,
+            obj: {}
+        }
+
+        res.status(500).send(JSON.stringify(responseError))
+
+    }
+
+})
+
 module.exports = router;
