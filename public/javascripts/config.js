@@ -96,8 +96,6 @@ function alteraRotina(id,nome){
 
 function carregaOperacoes(id){
 
-    document.getElementById('newOperationCard').className = "card card-primary collapsed-card";
-
     if (id != '')
     {    
         //$('#newOperationCard').card('show');     
@@ -108,12 +106,25 @@ function carregaOperacoes(id){
             let node;
             let i = 0;
             let element = document.getElementById("operacoes1");
+            let newOperation = document.getElementById("newOperationCard");
+
+            let removeRoutine = document.getElementById("btnRemoveRoutine");
+            let updateRoutine = document.getElementById("btnUpdateRoutine");
+
+            newOperation.className = "card card-primary collapsed-card";
+            newOperation.style = '';
+
+            removeRoutine.style = 'float:right';
+            updateRoutine.style = 'float:right';
 
             element.innerHTML = '';
             p = document.createElement('p');
             objRes = JSON.parse(data);
             console.log(objRes);
 
+            element.appendChild(newOperation);
+            document.getElementById("titleBox").appendChild(removeRoutine);
+            document.getElementById("titleBox").appendChild(updateRoutine);
             objRes.forEach((item ) => {
                 let myDiv = document.createElement("div");
 
@@ -168,8 +179,18 @@ function loadText(id, i)
 } 
 
 
-function updateText(){
+function updateOperation(){
 
+    let operationName = document.getElementById('operationName').value;
+    let operationText = document.getElementById('operationText').value;
+    let routineId =  parseInt(document.getElementById('comboRotina').value); 
+    let url = "/operacoes"
+    let textUrl = "/texto"
+    let obj = {};
+    let strobj = '';
+    let error = '';
+    let textObj = {};
+    let strTextObj = '';
 
 }
 
@@ -232,9 +253,7 @@ function deleteOperation(id){
     let obj;
     obj = {id:id};
     let strobj = '';
-    let success = '';
     let error = '';
-    let divRemoved;
     console.log(id);
     $('#deleteOperationModal').modal('show');
     console.log(id);

@@ -9,8 +9,12 @@ block content
         div(class="box-body")
             div(id="testeBox" class="box" data-widget="box-refresh" data-source="/config")
                 div(class="box-header")
-                    h3(class="box-title" style="text-align:center;margin-bottom:40px;font-weight:bold") R O T I N A S  
-                        button(class="btn btn-primary" data-toggle="modal" data-target="#mymodal" style="float:right") +   
+                    h3(id="titleBox" class="box-title" style="text-align:center;margin-bottom:40px;font-weight:bold") R O T I N A S  
+                        button(id="btnRemoveRoutine" class="btn btn-danger" data-toggle="modal" data-target="#deleteRoutineModal" style="float:right; display:none ")
+                            i(class="fas fa-trash")
+                        button(id="btnUpdateRoutine" class="btn btn-warning" data-toggle="modal" data-target="#updateRoutineModal" style="float:right; display:none")
+                            i(class="fas fa-wrench")
+                        button(class="btn btn-primary" data-toggle="modal" data-target="#mymodal" style="float:right") +
                         a(href="/")
                             button(class="btn btn-primary" title="Configurador" style="float:left")
                                 i(class="fa fa-home")                                          
@@ -20,7 +24,7 @@ block content
                     each objeto in objetos
                         option(value=objeto.id) #{objeto.nome}   
     br
-    div(id="newOperationCard" class="card card-primary card fade")
+    div(id="newOperationCard" class="card card-primary" style="display:none")
         div(class="card-header")
             h5(class="card-title") Nova Operação
             div(class="card-tools")
@@ -55,23 +59,36 @@ block content
                 div(class="modal-footer justify-content-between")
                     button(type="button" class="btn btn-success" onclick="btnIncluirRotina()") Salvar 
                     button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar
-
-    div(class="modal fade" id="aaa" style="display:none" aria-hidden="true")
+                    
+    div(class="modal fade" id="updateRoutineModal" style="display:none" aria-hidden="true")
         div(class="modal-dialog")
             div(class="modal-content")     
                 div(class="modal-header")
-                    h4(class="modal-title") Alterar Rotina                             
+                    h4(class="modal-title") Alterar Rotina                            
                 div(class="modal-body")
                     form
                         div(class="form-group")
-                            input(id="ip1" class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Novo nome da Rotina")
+                            input(id="ip1" class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Nome da rotina")
                             small(id="rotinaHelp" class="form-text text-muted") Exemplo: MATA010
                         div(class="form-group")
-                            input(id="ip2" class="form-control" type="text" aria-describedby="descHelp" placeholder="Nova descrição da Rotina")
+                            input(id="ip2" class="form-control" type="text" aria-describedby="descHelp" placeholder="Descrição da rotina")
                             small(id="descHelp" class="form-text text-muted") Exemplo: Cadastro de Produtos   
                 div(class="modal-footer justify-content-between")
-                    button(type="button" class="btn btn-success" onclick="btnIncluirRotina()") Alterar 
-                    button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar  
+                    button(type="button" class="btn btn-warning" onclick="btnIncluirRotina()") Salvar 
+                    button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar                    
+
+    div(class="modal fade" id="deleteRoutineModal" style="display:none" aria-hidden="true")
+        div(class="modal-dialog")
+            div(class="modal-content")     
+                div(class="modal-header")
+                    h4(class="modal-title") Excluir Rotina                            
+                div(class="modal-body")
+                    form
+                        p Deseja excluir a rotina e todas as operações relacionadas a ela?
+                div(class="modal-footer justify-content-between")
+                    button(type="button" class="btn btn-danger" onclick="deleteRoutine()") Excluir
+                    button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar   
+
     div(class="modal fade" id="deleteOperationModal" style="display:none" aria-hidden="true")
         div(class="modal-dialog")
             div(class="modal-content")     
