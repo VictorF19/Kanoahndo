@@ -1,3 +1,5 @@
+var host = '10.172.66.126';
+
 function btnIncluirRotina()
 {
     let textBox = $('#ip1').val();
@@ -10,7 +12,9 @@ function btnIncluirRotina()
 
     if (textBox.trim() == '' || textBox1.trim() == '')
     {
-        alert("Verifique se os campos foram preenchidos.")
+        
+        $('#mymodal').modal('hide');
+        toastr.error("Verifique se os campos foram preenchidos.")
 
         return
     }
@@ -23,30 +27,34 @@ function btnIncluirRotina()
     type: "POST",
     url: url,
     data: strobj,
-    success: success,
+    success: function(result){
+        $('#mymodal').modal('hide');
+        //alert('Rotina incluída com sucesso.');
+        toastr.success('Rotina incluída com sucesso.');
+        window.location.href= 'http://'+host+':3000/config';
+    },
     dataType: 'json',
     contentType: 'application/json',
     error: error
     }); 
-    
-    $('#mymodal').modal('hide');
 
     console.log(strobj);
 
     return
 }
 
-function btnRemoverRotina(id){
+function btnRemoverRotina(){
 
+    let RoutineId = document.getElementById('comboRotina').value;
     let obj = {}
     let strobj = ''
     let url = "/objetos"
     let success = ''
     let error = ''
 
-    obj.id = id;
+    obj.id = parseInt(RoutineId);
 
-    strobj = JSON.stringify(obj)
+    strobj = JSON.stringify(obj);
 
     if (confirm('Deseja excluir a rotina?')){
 
@@ -54,7 +62,12 @@ function btnRemoverRotina(id){
             type: "DELETE",
             url: url,
             data: strobj,
-            success: success,
+            success: function(result){
+                $('#deleteRoutineModal').modal('hide');
+                alert('Rotina e todas suas operações foram excluídas com sucesso.');
+                window.location.href= 'http://'+host+':3000/config';
+
+            },
             dataType: 'json',
             contentType: 'application/json',
             error: error
@@ -69,23 +82,31 @@ function btnRemoverRotina(id){
     return
 }
 
-function alteraRotina(id,nome){
+function alteraRotina(){
 
+    let textBox = $('#up1').val();
+    let textBox1 = $('#up2').val();
+    let RoutineId = document.getElementById('comboRotina').value;
+    
     let obj = {}
     let strobj = ''
     let url = "/objetos"
     let success = ''
     let error = ''
 
-    obj.id = id;
-    obj.nome = nome;
+    obj.id = parseInt(RoutineId);
+    obj.nome = textBox + ' - ' + textBox1;
     strobj = JSON.stringify(obj)
 
         $.ajax({
             type: "PUT",
             url: url,
             data: strobj,
-            success: success,
+            success: function(result){
+                $('#updateRoutineModal').modal('hide');
+                alert('Rotina atualizada com sucesso.');
+                window.location.href= 'http://'+host+':3000/config';
+            },
             dataType: 'json',
             contentType: 'application/json',
             error: error
@@ -130,9 +151,9 @@ function carregaOperacoes(id){
 
                 myDiv.innerHTML =   "<div class=\"row\">"
                                     +"<div class=\"col-md-12\">"        
-                                        + `<div id=id${item.id} class=\"card collapsed-card \">`
+                                        + `<div id=\"id${item.id}\" class=\"card collapsed-card \">`
                                             + "<div class=\"card-header\">" 
-                                                + "<h5 class=\"card-title\" style=\"font-weight: bold;\"> " + item.nome + "</h5>"
+                                                + `<h5 id=\"op${item.id}\" class=\"card-title\" style=\"font-weight: bold;\"> ` + item.nome + "</h5>"
                                                 + "<div class=\"card-tools\">"
                                                     + `<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\" onclick=\"loadText(${item.id}, ${i})\">`
                                                         + "<i class=\"fas fa-plus\">" + "</i>" 
@@ -146,7 +167,7 @@ function carregaOperacoes(id){
                                             + "<div class=\"card-footer\">"
                                                 + `<button type=\"button\" class=\"btn btn-danger\" style=\"float:right\" onclick="deleteOperation(${item.id})">`
                                                     + "<i class=\"fas fa-trash\">" + "</i>" 
-                                                + `<button type=\"button\" class=\"btn btn-primary\" style=\"float:left\" onclick="updateText()"> Salvar texto`
+                                                + `<button type=\"button\" class=\"btn btn-primary\" style=\"float:left\" onclick="updateOperation(${item.id},${i})"> Salvar texto`
                                             + "</div>"
                                         + "</div>"
                                     + "</div>"
@@ -179,18 +200,41 @@ function loadText(id, i)
 } 
 
 
-function updateOperation(){
+function updateOperation(id,i){
 
-    let operationName = document.getElementById('operationName').value;
-    let operationText = document.getElementById('operationText').value;
+    let operationText = document.getElementById(`#textoRotina${i}`).value;
+    let operationId = document.getElementById(`op${id}`).innerHTML;
     let routineId =  parseInt(document.getElementById('comboRotina').value); 
-    let url = "/operacoes"
+
+    console.log(operationText);
+    console.log(operationId);
+     
+    //let url = "/operacoes"
     let textUrl = "/texto"
     let obj = {};
     let strobj = '';
     let error = '';
-    let textObj = {};
-    let strTextObj = '';
+
+    obj.id_operacao = id;
+    obj.texto = operationText;
+
+    strobj = JSON.stringify(obj);
+
+    $.ajax({
+        type: "PUT",
+        url: textUrl,
+        data: strobj,
+        success: function(result){
+            console.log('Texto da operação alterado com sucesso.');
+            carregaOperacoes(routineId);    
+            toastr.success('Operação alterada com sucesso.');  
+        },
+        dataType: 'json',
+        contentType: 'application/json',
+        error: function(result){
+            toastr.error('Verifique se o texto da operação foi inserido.');
+        }
+        }); 
 
 }
 
@@ -215,7 +259,7 @@ function insertOperation(){
 
     if(operationName == '' || operationText == ''){
 
-        alert('Verifique se os campos estão preenchidos.');
+        toastr.error('Verifique se os campos estão preenchidos.');
     }
     else{
         $.ajax({
@@ -233,7 +277,11 @@ function insertOperation(){
                     url: textUrl,
                     data: strTextObj,
                     success: function(result){
-                        console.log('Texto da operação gravado com sucesso.');
+                        toastr.success('Operação incluída com sucesso.'); 
+                        document.getElementById('operationName').value = '';
+                        document.getElementById('operationText').value = '';
+                        document.getElementById('newOperationCard').className = 'card card-primary collapsed-card';   
+                        carregaOperacoes(routineId);           
                     },
                     dataType: 'json',
                     contentType: 'application/json',
@@ -270,6 +318,7 @@ function deleteOperation(id){
             success: function(result){
                 $("#id"+id).remove();
                 $('#deleteOperationModal').modal('hide');
+                toastr.info('Operação excluída com sucesso.'); 
             },
             error: error,
             data: strobj

@@ -81,5 +81,6 @@ function btnCopiar()
 {
     $('#textoCT').select()
     document.execCommand('copy')
+    toastr.success('Texto copiado.'); 
     $("#textoCT").blur();
 }

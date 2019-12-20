@@ -68,13 +68,13 @@ block content
                 div(class="modal-body")
                     form
                         div(class="form-group")
-                            input(id="ip1" class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Nome da rotina")
+                            input(id="up1" class="form-control" type="text" aria-describedby="rotinaHelp" placeholder="Nome da rotina")
                             small(id="rotinaHelp" class="form-text text-muted") Exemplo: MATA010
                         div(class="form-group")
-                            input(id="ip2" class="form-control" type="text" aria-describedby="descHelp" placeholder="Descrição da rotina")
+                            input(id="up2" class="form-control" type="text" aria-describedby="descHelp" placeholder="Descrição da rotina")
                             small(id="descHelp" class="form-text text-muted") Exemplo: Cadastro de Produtos   
                 div(class="modal-footer justify-content-between")
-                    button(type="button" class="btn btn-warning" onclick="btnIncluirRotina()") Salvar 
+                    button(type="button" class="btn btn-warning" onclick="alteraRotina()") Salvar 
                     button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar                    
 
     div(class="modal fade" id="deleteRoutineModal" style="display:none" aria-hidden="true")
@@ -86,7 +86,7 @@ block content
                     form
                         p Deseja excluir a rotina e todas as operações relacionadas a ela?
                 div(class="modal-footer justify-content-between")
-                    button(type="button" class="btn btn-danger" onclick="deleteRoutine()") Excluir
+                    button(type="button" class="btn btn-danger" onclick="btnRemoverRotina()") Excluir
                     button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar   
 
     div(class="modal fade" id="deleteOperationModal" style="display:none" aria-hidden="true")
