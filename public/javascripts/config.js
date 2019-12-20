@@ -35,7 +35,9 @@ function btnIncluirRotina()
     },
     dataType: 'json',
     contentType: 'application/json',
-    error: error
+    error: function(result){
+        toastr.error('Rotina incluída com sucesso.');
+    }
     }); 
 
     console.log(strobj);
@@ -232,7 +234,7 @@ function updateOperation(id,i){
         dataType: 'json',
         contentType: 'application/json',
         error: function(result){
-            toastr.error('Verifique se o texto da operação foi inserido.');
+            toastr.error('Ops, algo deu errado.');
         }
         }); 
 
@@ -290,7 +292,9 @@ function insertOperation(){
              },
             dataType: 'json',
             contentType: 'application/json',
-            error: error
+            error: function(result){
+                toastr.error('Ops, algo deu errado.');
+            }
             }); 
     }
     return
