@@ -1,0 +1,17 @@
+Incluir Contagem de Inventario
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu -> Atualizações -> movimentações-> internas -> Inventario (MATA270)
+Parâmetros
+"Valida Existencia do Produto ?" = "Não"
+"Sugere inform. inventario ?" = "Por Codigo"
+"Data p/ opcao sel. autom. ?" = dDataBase
+"Selecionar contagem por ?" = "Data/Contagem"
+"Data da contagem ?" = dDataBase
+"Contagem ?" = ""
+Incluir
+Filial: D MG 01
+Produto (B7_COD): 
+Armazém (B7_LOCAL): 
+Documento (B7_DOC): 
+Quantidade (B7_QUANT): 
+Contagem (B7_CONTAGE): 

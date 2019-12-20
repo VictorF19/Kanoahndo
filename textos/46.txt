@@ -1,0 +1,9 @@
+Incluir Lançamento
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu Atualizações -> ACD -> Inventário -> Lançamentos (ACDA035)
+Incluir
+Codigo Inv. (CBB_CODINV): 
+Usuario (CBB_USU): 
+Produto (CBC_COD): 
+Armazem (CBC_LOCAL): 
+Quantidade (CBC_QUANT): 
