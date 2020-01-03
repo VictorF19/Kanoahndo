@@ -66,7 +66,7 @@ router.post('/', async (req, res) => {
             return
         }
 
-        let operacao = new Operacoes(null, null, nome)
+        let operacao = new Operacoes(null, id_objeto, nome)
 
         operacao = await postAccess.get(operacao)
 
