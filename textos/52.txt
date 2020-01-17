@@ -1,0 +1,5 @@
+Menu Atualizações -> Entidades -> Centro de Custo(CTBA030)
+Incluir
+C Custo(CTT_CUSTO) => 
+Classe(CTT_CLASSE) => 
+Desc Moeda 1(CTT_DESC1) =>

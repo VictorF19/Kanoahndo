@@ -1,0 +1,6 @@
+Acessar o módulo Contabilidade Gerencial(Modulo 34);
+Menu Atualizações -> Cadastros -> Moedas Contabeis(CTBA140)
+Clique Incluir
+Moeda(CTO_MOEDA) =>
+Descricao(CTO_DESC) =>
+Simbolo(CTO_SIMB) => 

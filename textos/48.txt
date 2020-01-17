@@ -1,0 +1,13 @@
+Incluir Estrutura
+Acessar o módulo Estoque/Custos (Módulo 04);
+Menu Atualizaçoes -> Engenharia -> Estruturas -> Estruturas (MATA200)
+Incluir
+Filial: D MG 01
+Código (CPRODUTO): 
+Quantidade Base (NQTDBASE): 
+<TAB>
+[Incluir]
+Componente (G1_COMP): 
+Quantidade (G1_QUANT): 
+[Salvar]
+[Ok]

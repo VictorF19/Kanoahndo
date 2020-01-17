@@ -1,0 +1,32 @@
+Incluir Transferência entre Filiais
+Acessar o módulo do Estoque/Custos (Módulo 04)
+Filial: D MG 01
+Menu Atualizações -> Movimentações -> Fiscais -> Transferências Entre Filiais (MATA310)
+
+Parametros
+
+De produto ? TVPA01
+Ate produto ? TVPA01
+De filial ? D MG 01
+Ate filial ? D MG 02
+De armazem ?
+Ate armazem ? 99
+De tipo ?
+Ate tipo ? ZZ
+De grupo ?
+Ate grupo ? 9999
+Filtra produtos por categ. ? Nao
+Quebra informacoes ? Por produto
+TES para notas de saida ? 501
+Gerar documento de entrada ? Classficado
+TES para notas de entrada ? 001
+Condicao de pagamento ? 000
+Considera como preco no PV ? Tabela de Preco
+Dados da origem ? Todas Filiais 
+Utilizar Saldo de Terceiros ? Nao
+Espécie documento de entrada ? SPED
+Descrição de produtos ? Não
+TP Oper. Saida ?
+TP Oper. Entrada ?
+Informa prod. manualmente ? Não
+Abre tela da nota de entrada ? Não 

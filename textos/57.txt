@@ -1,0 +1,9 @@
+Incluir Condição de Pagamento
+Acessar o módulo do Estoque/Custos (Módulo 04)
+Menu Atualizações -> Cadastros -> Financeiro -> Condição de Pagamento (MATA360)
+Filial: D MG 01
+Incluir
+Codigo (E4_CODIGO): 
+Tipo (E4_TIPO): 
+Cond. Pagto (E4_COND):
+Clique em Salvar

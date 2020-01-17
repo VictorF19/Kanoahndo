@@ -1,0 +1,5 @@
+Acessar o módulo Contabilidade Gerencial(Modulo 34);
+Menu Atualizações -> Cadastros -> Moedas X Calendarios (CTBA200)
+Clique Incluir
+Moeda(CTE_MOEDA) =>
+Calendario(CTE_CALEND) =>

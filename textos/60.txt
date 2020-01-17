@@ -1,0 +1,15 @@
+Incluir Mestre de Inventario
+Acessar o módulo de Estoque/Custos (Módulo 04);
+Menu Atualizações -> Acd -> Inventário -> Mestre (ACDA030)
+Incluir
+Filial: D MG 01
+Data (CBA_DATA): 
+Contagens (CBA_CONTS): 
+Almoxarifado (CBA_LOCAL): 
+Tipo (CBA_TIPINV): 
+Produto (CBA_PROD): 
+Classe A (CBA_CLASSA): 2 - Não
+Classe B (CBA_CLASSB): 2 - Não
+Classe C (CBA_CLASSC): 2 - Não
+Inv. Guiado (CBA_INVGUI): 
+Rec. Inv Mob (CBA_RECINV): 

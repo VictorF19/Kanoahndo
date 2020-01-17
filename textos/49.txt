@@ -1,0 +1,8 @@
+Acessar o módulo Contabilidade Gerencial(Modulo 34);
+Menu Atualizações -> Cadastros -> Calendário Contabil(CTBA010)
+Clique Incluir
+Calendario(CCALENDCTB) =>
+Exercicio Contabil(CEXERC) => 
+Dt Inicio(CTG_DTINI) => 
+Dt Final(CTG_DTFIM) => 
+Status Per(CTG_STATUS) => 

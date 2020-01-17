@@ -1,0 +1,27 @@
+Executar o Recalculo do custo 
+Acessar o módulo Estoque/Custos(modulo 4)
+Menu Miscelanea -> Cálculos -> Custo Médio(MATA330)
+
+Definir os parâmetros com a configuração e selecionar a opção Ok:
+
+Data Limite Final? dDataBase
+Mostra Lanctos. Contabeis? Sim
+Aglutina Lanctos. Contabeis? Nao
+Atualizar Arq. de Movimentos? Sim
+% de Aumento da MOD? 50
+Centro de Custo? Contabil
+Conta Contabil a Inibir de ?
+Conta Contabil a Inibir Ate ? ZZZZZZZZZZZZZZZ
+Apagar Estornos ? Nao
+Gerar Lancto Contabil? Manter Lancamen
+Gerar Estrut.pela Moviment. ? Nao
+Contabilizacao On-Line Por? Ambas
+Calcula Mao-de-Obra ? Sim
+Metodo de Apropriacao ? Mensal
+Recalcula Niveis da Estrut.? Sim
+Mostra Sequencia do Calculo? Custo Medio
+Seq Processamento FIFO? Data + Sequencia
+Mov Internos Valorizados? Antes
+Recalcula custos Transportes? Sim
+Calculo de custos por ? Filial corrente
+Calcular Custo em Partes? Sim

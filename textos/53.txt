@@ -1,0 +1,11 @@
+Cadastrar Filial
+Acessar o módulo do Configurador (Módulo 99);
+Menu Ambiente -> Empresas -> Filial (CFGX032)
+Clique em Incluir
+Grupo(XX8_GRPEMP) =>
+Empresa(XX8_EMPR) =>
+Unid. Negócio(XX8_UNID) =>
+Código(XX8_CODIGO) =>
+Descrição(XX8_DESCRI) =>
+
+Clique em Salvar.
